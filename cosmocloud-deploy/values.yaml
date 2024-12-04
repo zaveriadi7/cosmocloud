@@ -1,0 +1,21 @@
+backend:
+  image: shreybatra/sample-backend
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 8000
+
+frontend:
+  image: shreybatra/sample-frontend
+  replicas: 1
+  service:
+    type: NodePort
+    port: 5173
+    nodePort: 31000
+
+redis:
+  image: redis
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 6379
