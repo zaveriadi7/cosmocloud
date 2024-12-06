@@ -4,7 +4,7 @@ Greetings to the cosmocloud team, I am **Aditya Zaveri** and this is my submissi
 
 ## Project Overview: Containerized Microservices
 
-This project implements a **containerized microservices** architecture with three services, each running in its own container to ensure isolation and ease of deployment.
+This project implements a **containerized microservices** architecture with three services, each running in it's own container to ensure isolation and ease of deployment.
 
 **1.	Backend Service**
 The Backend service, built using the shreybatra/sample-backend image, handles business logic and API requests from the frontend. It processes data and communicates with other services as needed.
@@ -76,12 +76,13 @@ The Redis service, using the official redis image.
 
 •	**templates/service-redis.yaml:** Kubernetes service for Redis.
 
+<img width="229" alt="Screenshot 2024-12-06 at 17 26 27" src="https://github.com/user-attachments/assets/be470cbe-7eb1-46eb-8fd5-f23f28b6d0a5">
 
 ## Steps for Deployment
 
 **1. Start Minikube**
 
-To start a local Kubernetes cluster with Minikube, run the following command:
+Start a local Kubernetes cluster with Minikube, run the following command:
 
 ```bash
 minikube start
@@ -101,22 +102,22 @@ helm install testapp cosmocloud-deploy --atomic --timeout 30s
 
 **4. Port Forwarding**
 
-To access the frontend from your local machine, use port forwarding:
+Access the frontend from your local machine, use port forwarding:
 
 ```bash
 kubectl port-forward service/frontend-svc 31000:5173
 ```
 
-After this, the frontend will be accesible at at http://localhost:31000.
+After this, the front end will be accessible at at http://localhost:31000.
 
 **5. Verify Deployment(optional)**
 
-Check if the deployment is successful:
+Verify the deployment:
 ```bash
 kubectl get deployments
 kubectl get services
 ```
-You should see the following:
+ Ensure the output has :
 
 	•	One backend deployment.
 	•	One frontend deployment.
