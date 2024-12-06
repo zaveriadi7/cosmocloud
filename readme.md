@@ -124,10 +124,17 @@ You should see the following:
 	•	Three services: backend-svc, frontend-svc, and redis-svc.
 <img width="921" alt="Screenshot 2024-12-06 at 17 08 48" src="https://github.com/user-attachments/assets/83b0d11e-5bcf-473f-bf6f-c53838988d9b">
 
-## Explanation
+## Explanation and Debugging
 
-The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, i came up with two solutions that work the best:-
-	
+After running the commands:
+
+1.Minikube starts a local Kubernetes cluster for hosting the app.
+2.Helm deploys the backend, frontend, and Redis as containers with Kubernetes managing their configuration and communication.
+3.Port forwarding makes the frontend accessible locally via http://localhost:31000.
+4.The app becomes fully operational, with the frontend communicating with the backend and Redis running.
+
+The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, I came up with two solutions that work the best:-
+( Source for resolving issue:- https://stackoverflow.com/questions/71536310/unable-to-access-minikube-ip-address)
 **1. Use the command**
 
 ```bash
