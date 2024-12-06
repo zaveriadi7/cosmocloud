@@ -129,8 +129,11 @@ You should see the following:
 After running the commands:
 
 1.Minikube starts a local Kubernetes cluster for hosting the app.
+
 2.Helm deploys the backend, frontend, and Redis as containers with Kubernetes managing their configuration and communication.
+
 3.Port forwarding makes the frontend accessible locally via http://localhost:31000.
+
 4.The app becomes fully operational, with the frontend communicating with the backend and Redis running.
 
 The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, I came up with two solutions that work the best:-
