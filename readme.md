@@ -62,7 +62,7 @@ The Redis service, using the official redis image.
 
 •	**Chart.yaml:** Contains metadata about the Helm chart.
 
-•	**values.yaml:** Defines default values for 	environment variables and other configuration.
+•	**values.yaml:** Defines default values for environment variables and other configuration.
 
 •	**templates/deployment-backend.yaml:** Kubernetes deployment for the backend service.
 
@@ -122,6 +122,7 @@ You should see the following:
 	•	One frontend deployment.
 	•	One Redis deployment.
 	•	Three services: backend-svc, frontend-svc, and redis-svc.
+<img width="921" alt="Screenshot 2024-12-06 at 17 08 48" src="https://github.com/user-attachments/assets/83b0d11e-5bcf-473f-bf6f-c53838988d9b">
 
 ## Explanation
 
@@ -133,6 +134,7 @@ The problem i faced to verify my deployment was of accessing the frontend part o
 minikube service frontend-svc
 ```
 This automatically opens the frontend on your local system.
+<img width="909" alt="Screenshot 2024-12-06 at 17 07 23" src="https://github.com/user-attachments/assets/42f36bf4-402e-4429-a404-0f2383362a7b">
 
 **2. Port Forwarding**
 
@@ -140,6 +142,7 @@ This automatically opens the frontend on your local system.
 kubectl port-forward service/frontend-svc 31000:5173
 ```
 This forwards traffic from local machine’s port 31000 to the frontend-svc service on port 5173 inside the Kubernetes cluster.
+<img width="921" alt="Screenshot 2024-12-06 at 17 07 55" src="https://github.com/user-attachments/assets/3a33d99f-085a-4ca8-8a43-fa586547bc91">
 
 This behaviour is caused by the inherent working of minikube, as it creates its own local network inside the container, which is isolated from the outside world. This isolation helps prevent potential conflicts between the Minikube Kubernetes cluster and host's operating system’s network interfaces.
 
@@ -148,6 +151,6 @@ This behaviour is caused by the inherent working of minikube, as it creates its 
 This Deploys a fully functional application stack with backend, frontend, and Redis services in a Kubernetes cluster. I hope to hear from the cosmocloud team soon. 
 
 Deployment screenshot:
-	https://drive.google.com/file/d/1Hq4km8-6s8kz375v71yfkfNKGksjaJ8v/view?usp=sharing
+<img width="1582" alt="Screenshot 2024-12-06 at 16 08 32" src="https://github.com/user-attachments/assets/586ec0e5-cecf-4ec8-839f-e17a06dc8847">
 
 
