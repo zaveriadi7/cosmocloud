@@ -138,6 +138,7 @@ After running the commands:
 
 The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, I came up with two solutions that work the best:-
 ( Source for resolving issue:- https://stackoverflow.com/questions/71536310/unable-to-access-minikube-ip-address)
+
 **1. Use the command**
 
 ```bash
