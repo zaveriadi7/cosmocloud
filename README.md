@@ -15,6 +15,20 @@ The Frontend service, using the shreybatra/sample-frontend image, is responsible
 **3.	Redis Service**
 The Redis service, using the official redis image.
 
+**About helm charts**
+
+A Helm chart is a package for bundling all the necessary resources to deploy an application on a Kubernetes cluster. It consists of collection of files that define and configure the application’s resources,enabling deployment.
+
+Helm charts consist of three components:
+
+1.	Chart.yaml: Contains metadata about the application, such as its name, version, and any dependencies.
+ 
+2.	Values.yaml: Specifies values that allow for chart customization.
+ 
+3.	Templates Directory: Houses template files, which are combined with values from the values.yaml file to generate Kubernetes manifests.
+
+Helm charts enable the ability to be reused across various environments, simplifying configuration management. Each chart can be versioned and maintained independently, helping to streamline the process of managing multiple application versions.
+
 ## Technical Overview:
 
 **•	Containerization:** Each service is containerized with Docker, providing portability and consistency across environments.
@@ -79,6 +93,20 @@ The Redis service, using the official redis image.
 <img width="229" alt="Screenshot 2024-12-09 at 16 37 11" src="https://github.com/user-attachments/assets/72aa782c-9888-4ff7-9023-ed0b9b89e52c">
 
 ## Steps for Deployment
+
+We can do this by using docker-desktop kubernetes or by minikube
+
+**a.Docker Desktop kubernetes**
+
+```bash
+  helm install testapp cosmocloud-deploy --atomic --timeout 30s
+```
+
+and app will be visible at localhost:31000
+
+**or**
+
+**b)Using Minikube**
 
 **1. Start Minikube**
 
