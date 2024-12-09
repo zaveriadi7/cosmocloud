@@ -4,7 +4,7 @@ Greetings to the cosmocloud team, I am **Aditya Zaveri** and this is my submissi
 
 ## Project Overview: Containerized Microservices
 
-This project implements a **containerized microservices** architecture with three services, each running in its own container to ensure isolation and ease of deployment.
+This project implements a **containerized microservices** architecture with three services, each running in it's own container to ensure isolation and ease of deployment.
 
 **1.	Backend Service**
 The Backend service, built using the shreybatra/sample-backend image, handles business logic and API requests from the frontend. It processes data and communicates with other services as needed.
@@ -62,7 +62,7 @@ The Redis service, using the official redis image.
 
 •	**Chart.yaml:** Contains metadata about the Helm chart.
 
-•	**values.yaml:** Defines default values for 	environment variables and other configuration.
+•	**values.yaml:** Defines default values for environment variables and other configuration.
 
 •	**templates/deployment-backend.yaml:** Kubernetes deployment for the backend service.
 
@@ -76,12 +76,13 @@ The Redis service, using the official redis image.
 
 •	**templates/service-redis.yaml:** Kubernetes service for Redis.
 
+<img width="229" alt="Screenshot 2024-12-09 at 16 37 11" src="https://github.com/user-attachments/assets/72aa782c-9888-4ff7-9023-ed0b9b89e52c">
 
 ## Steps for Deployment
 
 **1. Start Minikube**
 
-To start a local Kubernetes cluster with Minikube, run the following command:
+Start a local Kubernetes cluster with Minikube, run the following command:
 
 ```bash
 minikube start
@@ -101,38 +102,51 @@ helm install testapp cosmocloud-deploy --atomic --timeout 30s
 
 **4. Port Forwarding**
 
-To access the frontend from your local machine, use port forwarding:
+Access the frontend from your local machine, use port forwarding:
 
 ```bash
 kubectl port-forward service/frontend-svc 31000:5173
 ```
 
-After this, the frontend will be accesible at at http://localhost:31000.
+After this, the front end will be accessible at at http://localhost:31000.
 
 **5. Verify Deployment(optional)**
 
-Check if the deployment is successful:
+Verify the deployment:
 ```bash
 kubectl get deployments
 kubectl get services
 ```
-You should see the following:
+ Ensure the output has :
 
 	•	One backend deployment.
 	•	One frontend deployment.
 	•	One Redis deployment.
 	•	Three services: backend-svc, frontend-svc, and redis-svc.
+<img width="921" alt="Screenshot 2024-12-06 at 17 08 48" src="https://github.com/user-attachments/assets/83b0d11e-5bcf-473f-bf6f-c53838988d9b">
 
-## Explanation
+## Explanation and Debugging
 
-The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, i came up with two solutions that work the best:-
-	
+After running the commands:
+
+1.Minikube starts a local Kubernetes cluster for hosting the app.
+
+2.Helm deploys the backend, frontend, and Redis as containers with Kubernetes managing their configuration and communication.
+
+3.Port forwarding makes the frontend accessible locally via http://localhost:31000.
+
+4.The app becomes fully operational, with the frontend communicating with the backend and Redis running.
+
+The problem i faced to verify my deployment was of accessing the frontend part of the deployment. I had tried all ways for accessing the frontend on my local machine,such as using minikube ip and verifying all services were running and correct mappings were used, and that my backend was servicing the frontend, but all was unsuccesful. After researching about this issue, I came up with two solutions that work the best:-
+( Source for resolving issue:- https://stackoverflow.com/questions/71536310/unable-to-access-minikube-ip-address)
+
 **1. Use the command**
 
 ```bash
 minikube service frontend-svc
 ```
 This automatically opens the frontend on your local system.
+<img width="909" alt="Screenshot 2024-12-06 at 17 07 23" src="https://github.com/user-attachments/assets/42f36bf4-402e-4429-a404-0f2383362a7b">
 
 **2. Port Forwarding**
 
@@ -140,6 +154,7 @@ This automatically opens the frontend on your local system.
 kubectl port-forward service/frontend-svc 31000:5173
 ```
 This forwards traffic from local machine’s port 31000 to the frontend-svc service on port 5173 inside the Kubernetes cluster.
+<img width="921" alt="Screenshot 2024-12-06 at 17 07 55" src="https://github.com/user-attachments/assets/3a33d99f-085a-4ca8-8a43-fa586547bc91">
 
 This behaviour is caused by the inherent working of minikube, as it creates its own local network inside the container, which is isolated from the outside world. This isolation helps prevent potential conflicts between the Minikube Kubernetes cluster and host's operating system’s network interfaces.
 
@@ -148,6 +163,6 @@ This behaviour is caused by the inherent working of minikube, as it creates its 
 This Deploys a fully functional application stack with backend, frontend, and Redis services in a Kubernetes cluster. I hope to hear from the cosmocloud team soon. 
 
 Deployment screenshot:
-	https://drive.google.com/file/d/1Hq4km8-6s8kz375v71yfkfNKGksjaJ8v/view?usp=sharing
+<img width="1582" alt="Screenshot 2024-12-06 at 16 08 32" src="https://github.com/user-attachments/assets/586ec0e5-cecf-4ec8-839f-e17a06dc8847">
 
 
